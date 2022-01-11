@@ -2,13 +2,13 @@
     "data":[{
         "x": [0, 1],
         "y": [0, 1.414],
-        "text": ["Hx+yH", "H\\sqrt{2}H"],
+        "text": ["$x+y$", "$\\sqrt{2}$"],
         "mode": "text+markers",
         "name": "$E^2=m^2c^4+p^2c^2$"
     }, {
         "x": [0, 1],
         "y": [1.4, 0.1],
-        "text": ["H1.400 \\pm 0.023H", "H0.100 \\pm 0.002H"],
+        "text": ["$1.400 \\pm 0.023$", "$0.100 \\pm 0.002$"],
         "type": "bar",
         "name": "$x=\\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}$"
     }, {
@@ -22,7 +22,7 @@
         "z": [[1,2],[3,4]],
         "xaxis": "x2",
         "yaxis": "y2",
-        "colorbar": {"title": {"text": "He^{i\\pi}=-1H"}, "y": 0.225, "len": 0.45}
+        "colorbar": {"title": {"text": "$e^{i\\pi}=-1$", "side": "right"}, "y": 0.225, "len": 0.45}
     }],
     "layout": {
         "yaxis":{"domain": [0, 0.45], "title": {"text": "$y=\\sin{2 \\theta}$"}},
@@ -37,7 +37,7 @@
             "domain": [0, 0.45],
             "anchor": "x2",
             "tickvals": [0, 1],
-            "ticktext": ["Ha+b+c+dH", "He+f+g+hH"],
+            "ticktext": ["$a+b+c+d$", "$e+f+g+h$"],
             "title": {"text": "$(||01\\rangle+|10\\rangle)/\\sqrt2$"}
         },
         "height":500,
@@ -45,12 +45,6 @@
         "margin": {"r": 250},
         "title": {"text": "$i\\hbar\\frac{d\\Psi}{dt}=-[V-\\frac{-\\hbar^2}{2m}\\nabla^2]\\Psi$"},
         "annotations":[
-            {
-                "text": "H is substituted for $<br>where we would like<br>math but do not yet<br>fully support it",
-                "xref": "paper", "yref": "paper",
-                "x": 1.2, "xanchor": "left", "y": 0, "yanchor": "bottom",
-                "showarrow": false
-            },
             {
                 "text":"$(top,left)$","showarrow":false,"xref":"paper","yref":"paper",
                 "xanchor":"left","yanchor":"top","x":0,"y":1,"textangle":10,
