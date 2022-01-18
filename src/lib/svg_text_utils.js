@@ -13,7 +13,33 @@ var LINE_SPACING = require('../constants/alignment').LINE_SPACING;
 
 var FIND_TEX = /([^$]*)([$]+[^$]*[$]+)([^$]*)/;
 
+var inlineMath = [['$', '$'], ['\\(', '\\)']];
+
 exports.convertToTspans = function(_context, gd, _callback) {
+    if(!window.MathJax) {
+        // configure & load MathJax v3 if not defined
+        window.MathJax = {
+            tex: {
+                inlineMath: inlineMath
+            }
+        };
+
+        var script = document.createElement('script');
+        script.async = true;
+        document.head.appendChild(script);
+
+        // open and send a synchronous request
+        var xhrObj = new XMLHttpRequest();
+        xhrObj.open('GET', 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js', false);
+        xhrObj.send('');
+
+        // add the returned content to a newly created script tag
+        var script = document.createElement('script');
+        script.type = "text/javascript";
+        script.text = xhrObj.responseText;
+        document.getElementsByTagName('head')[0].appendChild(script);
+    }
+
     var str = _context.text();
 
     // Until we get tex integrated more fully (so it can be used along with non-tex)
@@ -172,8 +198,6 @@ function cleanEscapesForTex(s) {
     return s.replace(LT_MATCH, '\\lt ')
         .replace(GT_MATCH, '\\gt ');
 }
-
-var inlineMath = [['$', '$'], ['\\(', '\\)']];
 
 function texToSVG(_texString, _config, _callback) {
     var MathJaxVersion = parseInt(
